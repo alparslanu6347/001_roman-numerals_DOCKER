@@ -1,0 +1,38 @@
+### docker-instance (host) : Amazon Linux 2 , t2.micro ###
+
+```bash
+- pwd   # home/ec2-user
+- mkdir roman-numerals
+
+- cd roman-numerals/
+
+- sudo yum install tree -y
+- tree
+.
+    ├── commands.txt
+    ├── Dockerfile
+    ├── phone.py
+    └── templates
+        ├── index.html
+        └── result.html
+
+- docker build -t arrow-image1 .
+
+- docker image ls
+    REPOSITORY     TAG       IMAGE ID       CREATED          SIZE
+    arrow-image1   latest    c9f7a2724a6e   11 seconds ago   473MB
+    ubuntu         latest    08d22c0ceb15   2 weeks ago      77.8MB
+
+- docker run -d --name arrow_container1 -p 80:80 arrow-image1
+    87fff02dbf00b6b3f1bb3930d71d88612f0e278d7238ea934f572e691e8764e7
+
+- docker container ls
+
+# ec2-instance public IP -->> browser: http://52.201.220.206/
+
+- docker rm -f $(docker ps -aq)   # delete all containers
+
+- docker image prune -af  # delete all images
+```
+
+
