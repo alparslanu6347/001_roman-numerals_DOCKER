@@ -5,4 +5,5 @@ RUN apt-get install python3-pip -y
 RUN pip3 install flask
 COPY . /app
 WORKDIR /app
-CMD python3 ./phone.py
+EXPOSE 80
+CMD python3 ./romans.py
